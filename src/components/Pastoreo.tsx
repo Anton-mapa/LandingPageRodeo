@@ -4,7 +4,6 @@ import sombra from '../assets/oscuro.svg'
 import flechaVertical from '../assets/flecha-vertical.png'
 import flechaHorizontal from '../assets/flecha-horizontal.png'
 import lineaPunteada from '../assets/linea-punteada.svg'
-import r from '../assets/r.svg'
 
 function Pastoreo() {
   return (
@@ -31,7 +30,6 @@ function Pastoreo() {
         </p>
       ))}
 
-      <img className="pastoreo-r" src={r} alt="" />
     </section>
   )
 }

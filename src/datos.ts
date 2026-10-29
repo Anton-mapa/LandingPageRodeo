@@ -15,7 +15,7 @@ import registro from './assets/registro.png'
 import equipo from './assets/equipo.png'
 
 export const etiquetas = [
-  { texto: 'Condicion del lote para el pastoreo', left: 883, top: 381, width: 228 },
+  { texto: 'Condicion del lote para el pastoreo', left: 883, top: 378, width: 300 },
   { texto: 'Organizacion de las rutinas de pastoreo', left: 986, top: 527, width: 228 },
   { texto: 'Ubicacion del ganado en tiempo real', left: 764, top: 725, width: 261 },
 ]

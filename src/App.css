@@ -30,26 +30,12 @@
     animation-timeline: view();
     animation-range: entry 0% entry 80%;
   }
-
-  /* El logo del Hero se aleja mientras bajás */
-  .hero-logo {
-    animation: alejar linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100vh;
-  }
 }
 
 @keyframes aparecer {
   from {
     opacity: 0;
     transform: translateY(60px);
-  }
-}
-
-@keyframes alejar {
-  to {
-    opacity: 0;
-    transform: translateY(-120px) scale(0.85);
   }
 }
 
@@ -145,11 +131,30 @@
 }
 
 /* ---------- Hero ---------- */
+/* La escena queda fija mientras dura la animación del logo (el primer 100vh de scroll).
+   Mide 235vh para que el Pastoreo, que sube 35vh sobre el Hero, recién aparezca cuando el logo ya terminó */
 .hero {
   position: relative;
+  height: 235vh;
+}
+
+.hero-escena {
+  position: sticky;
+  top: 0;
   height: 100vh;
   min-height: 560px;
   overflow: hidden;
+}
+
+/* Foto, logo y montañas comparten una caja con la proporción de la foto que cubre la pantalla
+   (como un object-fit: cover), así las montañas recortadas calzan con la foto en cualquier pantalla */
+.hero-paisaje {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 100vh * 1024 / 576);
+  aspect-ratio: 1024 / 576;
+  translate: -50% -50%;
 }
 
 .hero-foto {
@@ -157,13 +162,13 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .hero-logo {
   position: absolute;
   left: 50%;
   top: 36%;
+  z-index: 1;
   translate: -50%;
 }
 
@@ -171,17 +176,24 @@
   position: absolute;
   left: 0;
   bottom: 0;
+  z-index: 2;
   width: 100%;
   transform: scaleX(-1);
 }
 
 /* ---------- Pastoreo inteligente ---------- */
-/* Foto con anotaciones: todo se ubica en % para que escale junto con la imagen */
+/* Foto con anotaciones: todo se ubica en % para que escale junto con la imagen.
+   Sube sobre el final del Hero y su borde de arriba se funde con el paisaje */
 .pastoreo {
+  --fundido: 35vh;
   position: relative;
+  z-index: 1;
+  margin-top: calc(var(--fundido) * -1);
   aspect-ratio: 1280 / 895;
   overflow: hidden;
+  background: #14170e;
   color: #fff;
+  mask-image: linear-gradient(transparent, #000 var(--fundido));
 }
 
 .pastoreo img {
@@ -194,6 +206,7 @@
   height: 100%;
   object-fit: cover;
   transform: scaleX(-1);
+  mask-image: linear-gradient(#000 75%, transparent);
 }
 
 .pastoreo-sombra {
@@ -201,6 +214,7 @@
   top: 19%;
   width: 100%;
   height: 81.3%;
+  mask-image: linear-gradient(transparent, #000 30%);
 }
 
 .pastoreo h2 {
@@ -247,12 +261,6 @@
   width: 32.25%;
 }
 
-.pastoreo-r {
-  left: 93.36%;
-  top: 2.9%;
-  width: min(4.58%, 60px);
-}
-
 .etiqueta {
   position: absolute;
   font-family: Helvetica, Arial, sans-serif;
@@ -261,9 +269,10 @@
 }
 
 /* ---------- Cómo funciona ---------- */
+/* Arranca con el verde oscuro del final de la foto y se aclara hasta el gris */
 .como-funciona {
-  padding: 48px var(--lado) 140px;
-  background: #d7d7d7;
+  padding: 288px var(--lado) 140px;
+  background: linear-gradient(#14170e, #d7d7d7 280px);
   color: #000;
 }
 
@@ -369,7 +378,7 @@
 .funciones {
   padding: 0 24px 25px;
   background:
-    radial-gradient(420px 320px at 100% 100%, rgba(255, 222, 103, 0.28), transparent),
+    radial-gradient(420px 320px at 100% calc(100% - 400px), rgba(255, 222, 103, 0.28), transparent),
     linear-gradient(180deg, #bfcbd6 0%, #d6dad3 50%, #e7dbbc 100%);
   color: #0e1511;
 }
@@ -433,8 +442,8 @@
   flex-direction: column;
   align-items: center;
   gap: 64px;
-  padding: 120px 24px;
-  background: #ecefea;
+  padding: 240px 24px 120px;
+  background: linear-gradient(#e7dbbc, #ecefea 240px);
 }
 
 .faq .encabezado h2 {
@@ -492,8 +501,11 @@
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  padding: 140px 24px;
+  padding: 300px 24px 240px;
+  /* La foto aparece desde el claro de las preguntas y se apaga en el negro del footer */
   background:
+    linear-gradient(#ecefea, rgba(236, 239, 234, 0) 240px),
+    linear-gradient(transparent calc(100% - 200px), #0a0f0c),
     linear-gradient(180deg, rgba(10, 15, 13, 0.55) 0%, rgba(10, 15, 13, 0.88) 100%),
     url('./assets/campo.png') center / cover;
   color: #fff;
