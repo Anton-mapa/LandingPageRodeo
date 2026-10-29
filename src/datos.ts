@@ -23,7 +23,7 @@ export const etiquetas = [
 export const pasos = [
   {
     titulo: '1. Marcá tu campo',
-    texto: 'Dibujá el límite de tu establecimiento y dividilo en lotes directamente sobre el mapa. Cargá el tipo de pastura de cada uno y listo, no hace falta nada más para empezar.',
+    texto: 'Dibujá el límite de tu establecimiento y dividilo en lotes directamente sobre el mapa. Cargá el tipo de pastura, el último pastoreo de cada uno y listo, no hace falta nada más para empezar.',
   },
   {
     titulo: '2. El satélite mira tus pasturas',
