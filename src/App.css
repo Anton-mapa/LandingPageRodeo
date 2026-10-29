@@ -1,184 +1,593 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* Los fondos ocupan todo el ancho; el contenido se centra con un máximo de 1280px */
+.landing {
+  overflow-x: clip;
+  --lado: max(24px, calc((100% - 1178px) / 2));
+}
 
-  &:hover {
-    border-color: var(--accent-border);
+.landing h2,
+.landing h3,
+.landing h4,
+.landing p {
+  margin: 0;
+}
+
+/* ---------- Animaciones al hacer scroll ---------- */
+/* Los elementos aparecen (suben y se hacen visibles) a medida que entran en pantalla */
+@supports (animation-timeline: view()) {
+  .pastoreo h2,
+  .etiqueta,
+  .como-funciona h2,
+  .bajada,
+  .paso,
+  .carrusel img,
+  .encabezado,
+  .mockup,
+  .funcion-texto,
+  .pregunta,
+  .cta > *,
+  .footer-contenido {
+    animation: aparecer linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
   }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+
+  /* El logo del Hero se aleja mientras bajás */
+  .hero-logo {
+    animation: alejar linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100vh;
   }
 }
 
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+}
+
+@keyframes alejar {
+  to {
+    opacity: 0;
+    transform: translateY(-120px) scale(0.85);
+  }
+}
+
+/* ---------- Logo y botones ---------- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--alto) * 0.065);
+}
+
+.logo img {
+  height: var(--alto);
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  white-space: nowrap;
+}
+
+.boton-primario {
+  background: #97ea7c;
+  color: #0f1a14;
+}
+
+.boton-contorno {
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+
+.boton-claro {
+  padding: 11px 22px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0f1a14;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: fixed;
+  inset: 18px 24px auto;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-lado {
+  flex: 1;
+  display: flex;
+}
+
+.navbar-derecha {
+  justify-content: flex-end;
+}
+
+/* Píldora de vidrio para que el menú se lea sobre cualquier fondo */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px);
+}
+
+.navbar-menu a,
+.navbar-funciones {
+  font-weight: 600;
+  font-size: clamp(16px, 1.95vw, 25px);
+  letter-spacing: -0.02em;
+  color: #0f1412;
+  white-space: nowrap;
+}
+
+.navbar-funciones {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* ---------- Hero ---------- */
 .hero {
   position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
 }
 
-#center {
+.hero-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-logo {
+  position: absolute;
+  left: 50%;
+  top: 36%;
+  translate: -50%;
+}
+
+.hero-borde {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  transform: scaleX(-1);
+}
+
+/* ---------- Pastoreo inteligente ---------- */
+/* Foto con anotaciones: todo se ubica en % para que escale junto con la imagen */
+.pastoreo {
+  position: relative;
+  aspect-ratio: 1280 / 895;
+  overflow: hidden;
+  color: #fff;
+}
+
+.pastoreo img {
+  position: absolute;
+}
+
+.pastoreo .pastoreo-foto {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.pastoreo-sombra {
+  left: 0;
+  top: 19%;
+  width: 100%;
+  height: 81.3%;
+}
+
+.pastoreo h2 {
+  position: absolute;
+  left: 0;
+  top: 24.4%;
+  width: 100%;
+  font-weight: 500;
+  font-size: 4.69vw;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  text-align: center;
+}
+
+.pastoreo h2 span {
+  display: block;
+  width: 45.5%;
+}
+
+.pastoreo h2 span + span {
+  width: 51%;
+  margin-left: 15.2%;
+}
+
+.flecha-vertical {
+  left: 58.49%;
+  top: 62.76%;
+  width: 0.833%;
+  height: 29.81%;
+  rotate: 180deg;
+}
+
+.flecha-horizontal {
+  left: 69.22%;
+  top: 27.89%;
+  width: 0.833%;
+  height: 49.09%;
+  rotate: 90deg;
+}
+
+.linea-punteada {
+  left: 44.08%;
+  top: 59.13%;
+  width: 32.25%;
+}
+
+.pastoreo-r {
+  left: 93.36%;
+  top: 2.9%;
+  width: min(4.58%, 60px);
+}
+
+.etiqueta {
+  position: absolute;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 2.5vw;
+  letter-spacing: -0.05em;
+}
+
+/* ---------- Cómo funciona ---------- */
+.como-funciona {
+  padding: 48px var(--lado) 140px;
+  background: #d7d7d7;
+  color: #000;
+}
+
+.como-funciona h2 {
+  font-weight: 600;
+  font-size: clamp(40px, 5.37vw, 68.73px);
+}
+
+.bajada {
+  margin-top: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: clamp(18px, 2.36vw, 30.17px);
+  letter-spacing: -0.06em;
+}
+
+/* Dos columnas: los pasos pares bajan un poco para que queden escalonados */
+.pasos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  margin-top: 40px;
+}
+
+.paso:nth-child(even) {
+  margin-top: 200px;
+}
+
+.paso h3 {
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: clamp(20px, 2.34vw, 30px);
+}
+
+.paso p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 1.95vw, 25px);
+  letter-spacing: -0.06em;
+}
+
+/* ---------- Carrusel de fotos ---------- */
+/* El fondo pasa del gris de "Cómo funciona" al celeste de "Funciones" */
+.carrusel {
+  overflow: hidden;
+  background: linear-gradient(#d7d7d7 30%, #bfcbd6 50%);
+  color: #0f1a14;
+}
+
+.carrusel-interno {
+  position: relative;
+  max-width: 1280px;
+  aspect-ratio: 1280 / 720;
+  margin: 0 auto;
+}
+
+.carrusel img {
+  position: absolute;
+}
+
+.carrusel p {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  white-space: nowrap;
+}
+
+.carrusel-titulo {
+  top: 65.5%;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+}
+
+.carrusel-contador {
+  top: 69.7%;
+  font-size: 14px;
+  opacity: 0.55;
+}
+
+/* ---------- Encabezado de sección ---------- */
+.encabezado {
+  max-width: 760px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  gap: 16px;
+  text-align: center;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+.encabezado h2 {
+  font-weight: 500;
+  font-size: clamp(32px, 3.75vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+.encabezado p {
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.2px;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+/* ---------- Funciones ---------- */
+.funciones {
+  padding: 0 24px 25px;
+  background:
+    radial-gradient(420px 320px at 100% 100%, rgba(255, 222, 103, 0.28), transparent),
+    linear-gradient(180deg, #bfcbd6 0%, #d6dad3 50%, #e7dbbc 100%);
+  color: #0e1511;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.funciones .encabezado p {
+  opacity: 0.7;
 }
 
-.ticks {
+.funciones-lista {
+  margin-top: 40px;
+}
+
+/* Cada fila mantiene la proporción del Figma (1280 x 650) y escala con el ancho */
+.funcion {
   position: relative;
+  max-width: 1280px;
+  aspect-ratio: 1280 / 650;
+  margin: 0 auto;
+}
+
+.mockup {
+  position: absolute;
+  border-radius: 7px;
+  box-shadow: -40px 40px 40px rgba(0, 0, 0, 0.25);
+  background-size: cover;
+  background-position: center;
+}
+
+.funcion-texto {
+  position: absolute;
+  left: 7.1%;
+  top: 50%;
+  translate: 0 -50%;
+  width: 28.3%;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.funcion.derecha .funcion-texto {
+  left: 60.86%;
+}
+
+.funcion-texto h3 {
+  font-weight: 600;
+  font-size: clamp(20px, 2.57vw, 32.95px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.funcion-texto p {
+  font-size: clamp(15px, 1.72vw, 21.96px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  opacity: 0.68;
+}
+
+/* ---------- Preguntas frecuentes ---------- */
+.faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  padding: 120px 24px;
+  background: #ecefea;
+}
+
+.faq .encabezado h2 {
+  color: #0f1a14;
+}
+
+.faq .encabezado p {
+  color: #5e6b64;
+}
+
+.faq-lista {
   width: 100%;
+  max-width: 860px;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.pregunta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 26px 0;
+  border-bottom: 1px solid rgba(15, 26, 20, 0.12);
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+.pregunta button {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: -0.44px;
+  color: #0f1a14;
+}
+
+.pregunta button span {
+  flex: 1;
+}
+
+.pregunta p {
+  max-width: 760px;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  color: #5e6b64;
+}
+
+/* ---------- Llamado a la acción ---------- */
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 140px 24px;
+  background:
+    linear-gradient(180deg, rgba(10, 15, 13, 0.55) 0%, rgba(10, 15, 13, 0.88) 100%),
+    url('./assets/campo.png') center / cover;
+  color: #fff;
+  text-align: center;
+}
+
+.cta h2 {
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.cta p {
+  max-width: 640px;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  opacity: 0.78;
+}
+
+.cta-botones {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding: 80px var(--lado) 40px;
+  background: #0a0f0c;
+  color: #fff;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.footer-marca {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-marca p,
+.footer-columna a {
+  font-size: 21.96px;
+  line-height: 24px;
+  letter-spacing: -0.22px;
+}
+
+.footer-marca p {
+  opacity: 0.6;
+}
+
+.footer-columnas {
+  display: flex;
+  gap: 96px;
+}
+
+.footer-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-columna h4 {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 1.3px;
+  color: #97ea7c;
+}
+
+.footer-columna a {
+  opacity: 0.75;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.footer-legal p {
+  opacity: 0.45;
 }
