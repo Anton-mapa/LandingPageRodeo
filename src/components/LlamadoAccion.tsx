@@ -3,10 +3,6 @@ import punto from '../assets/punto.svg'
 
 function LlamadoAccion() {
   return (
-    <section className="cta" id="demo">
-      <img src={punto} alt="" />
-      <h2>Probá Rodeo en tu campo</h2>
-      <p>Te mostramos cómo se ven tus lotes, tu ganado y el clima en una demo personalizada.</p>
     <section
       className="flex flex-col items-center gap-8 px-6 pt-[300px] pb-[240px] fondo-cta text-center text-white"
       id="demo"
