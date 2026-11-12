@@ -7,11 +7,10 @@ import Funciones from './components/Funciones'
 import PreguntasFrecuentes from './components/PreguntasFrecuentes'
 import LlamadoAccion from './components/LlamadoAccion'
 import Footer from './components/Footer'
-import './App.css'
 
 function App() {
   return (
-    <div className="landing">
+    <div className="overflow-x-clip">
       <Navbar />
       <Hero />
       <Pastoreo />

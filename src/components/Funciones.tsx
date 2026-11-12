@@ -4,13 +4,14 @@ import { funcionalidades } from '../datos'
 
 function Funciones() {
   return (
-    <section className="funciones" id="funciones">
+    <section className="px-6 pb-[25px] fondo-funciones text-[#0e1511]" id="funciones">
       <Encabezado
         titulo="Todo tu campo, en una sola pantalla"
         bajada="Rodeo junta satélite, clima y ganado para que decidas cuándo y dónde pastorear."
+        claseBajada="opacity-70"
       />
 
-      <div className="funciones-lista">
+      <div className="mt-10">
         {funcionalidades.map((funcion, i) => (
           <TarjetaFuncion
             key={funcion.titulo}

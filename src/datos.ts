@@ -9,6 +9,7 @@ import foto11 from './assets/foto11.png'
 import laptops from './assets/laptops.png'
 import lotes from './assets/lotes.png'
 import conexion from './assets/conexion.png'
+import configuracion from './assets/configuracion.png'
 import fichaLote from './assets/ficha-lote.png'
 import clima from './assets/clima.png'
 import registro from './assets/registro.png'
@@ -70,13 +71,14 @@ export const funcionalidades: { titulo: string; texto: string; mockups: Mockup[]
     titulo: 'Imágenes satelitales',
     texto: 'NDVI, humedad y radar de Sentinel en cada pasada, aunque el día esté nublado.',
     mockups: [
+      { src: configuracion, x: 620, y: -180, ancho: 640, alto: 518, estilo: { boxShadow: 'none', borderRadius: 0 } },
       {
         src: fichaLote,
-        x: 594,
-        y: 117,
-        ancho: 606,
-        alto: 423,
-        estilo: { backgroundSize: '105.44% 265.09%', backgroundPosition: '50% 28.08%' },
+        x: 624,
+        y: 138,
+        ancho: 545,
+        alto: 381,
+        estilo: { backgroundSize: '105.44% 265.09%', backgroundPosition: '50% 28.08%', rotate: '5deg' },
       },
     ],
   },
@@ -115,20 +117,20 @@ export const preguntas = [
     respuesta: 'Los collares envían su posición por red celular o satelital según el modelo. Vos consultás todo desde la app cuando tengas conexión.',
   },
   {
-    pregunta: '¿Cada cuánto se actualizan las imágenes satelitales?',
-    respuesta: 'Sentinel-2 pasa cada pocos días. Cuando hay nubes, el radar de Sentinel-1 sigue midiendo para que no te quedes sin datos.',
+    pregunta: '¿Cada cuánto se actualizan los datos?',
+    respuesta: 'Los datos meteorológicos se actualizan diariamente, mientras que los satelitales cada 5 días, si es que no hay nubes.',
   },
   {
     pregunta: '¿Puedo usar Rodeo sin collares?',
-    respuesta: 'Sí. La condición de pasturas y el clima funcionan con solo dibujar tus lotes. Los collares suman la ubicación del ganado.',
+    respuesta: 'Absolutamente. Se pueden gestionar lotes y planificar los pastoreos gracias a las imágenes satelitales de Copernicus (ESA), el clima de Open-Meteo y los modelos agronómicos de INTA y LART-FAUBA.',
   },
   {
     pregunta: '¿Quién puede ver la información de mi campo?',
-    respuesta: 'Solo las personas que vos invitás, con el rol que les asignes: propietario, administrador o visor.',
+    respuesta: 'Cualquiera. La aplicación permite delegar roles con ciertos permisos.',
   },
   {
     pregunta: '¿Cuánto tarda en estar listo?',
-    respuesta: 'Marcás el establecimiento y los lotes en pocos minutos, y los datos satelitales y de clima se cargan solos.',
+    respuesta: 'Actualmente está en desarrollo. Hay que probar su funcionalidad en campos para seguir mejorándolo.',
   },
 ]
 

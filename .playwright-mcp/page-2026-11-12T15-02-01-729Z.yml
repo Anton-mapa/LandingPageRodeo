@@ -1,0 +1,127 @@
+- generic [ref=f7e3]:
+  - navigation [ref=f7e4]:
+    - link "Solicitá una demo" [ref=f7e6] [cursor=pointer]:
+      - /url: "#demo"
+    - generic [ref=f7e7]:
+      - link "Cómo funciona" [ref=f7e8] [cursor=pointer]:
+        - /url: "#como-funciona"
+      - button "Funciones" [ref=f7e9] [cursor=pointer]
+      - link "Preguntas frecuentes" [ref=f7e10] [cursor=pointer]:
+        - /url: "#preguntas"
+    - img "RODEO" [ref=f7e12]
+  - banner [ref=f7e13]:
+    - img "RODEO" [ref=f7e17]
+  - generic [ref=f7e18]:
+    - heading "Pastoreo Inteligente, al alcance de tus manos" [level=2] [ref=f7e19]:
+      - generic [ref=f7e20]: Pastoreo Inteligente,
+      - generic [ref=f7e21]: al alcance de tus manos
+    - paragraph [ref=f7e22]: Condicion del lote para el pastoreo
+    - paragraph [ref=f7e23]: Organizacion de las rutinas de pastoreo
+    - paragraph [ref=f7e24]: Ubicacion del ganado en tiempo real
+  - generic [ref=f7e25]:
+    - heading "Como funciona" [level=2] [ref=f7e26]
+    - paragraph [ref=f7e27]: "Rodeo junta lo que ve el satélite, lo que dice el clima y dónde está tu ganado, y lo convierte en una sola respuesta: qué lote está listo para pastorear y cuándo conviene entrar."
+    - generic [ref=f7e28]:
+      - generic [ref=f7e29]:
+        - heading "1. Marcá tu campo" [level=3] [ref=f7e30]
+        - paragraph [ref=f7e31]: Dibujá el límite de tu establecimiento y dividilo en lotes directamente sobre el mapa. Cargá el tipo de pastura, el último pastoreo de cada uno y listo, no hace falta nada más para empezar.
+      - generic [ref=f7e32]:
+        - heading "2. El satélite mira tus pasturas" [level=3] [ref=f7e33]
+        - paragraph [ref=f7e34]: "Cada vez que pasa un satélite, Rodeo analiza la vegetación de cada lote: cuánto pasto hay, cuánta humedad tiene y cómo viene creciendo. Si hay nubes, el radar sigue midiendo igual."
+      - generic [ref=f7e35]:
+        - heading "3. Los collares ubican a tu ganado" [level=3] [ref=f7e36]
+        - paragraph [ref=f7e37]: Los collares GPS muestran en el mapa dónde está el ganado, en qué lote entró y cuánto tiempo lleva ahí. Así sabés qué potrero se está usando y cuál está descansando, sin recorrer el campo.
+      - generic [ref=f7e38]:
+        - heading "4. Rodeo te dice cuándo entrar" [level=3] [ref=f7e39]
+        - paragraph [ref=f7e40]: "Con todo eso, cada lote tiene su estado de regeneración: No apto, Cuidado, Perfecto o Regular. Ves de un vistazo cuál está listo hoy, cuál conviene esperar y cuál ya pasó su mejor momento. La decisión siempre es tuya."
+  - generic [ref=f7e42]:
+    - region "Image carousel" [ref=f7e44]:
+      - generic [ref=f7e46]:
+        - generic:
+          - generic:
+            - group "Image 1, 1 of 14"
+            - group "Image 2, 2 of 14"
+            - group "Image 3, 3 of 14"
+            - group "Image 4, 4 of 14"
+            - group "Image 12, 12 of 14"
+            - group "Image 13, 13 of 14"
+            - group "Image 14, 14 of 14"
+      - generic [ref=f7e159]: Image 1, 1 of 14
+    - paragraph [ref=f7e160]: Rastrojo de verano
+    - paragraph [ref=f7e161]: 01 / 07
+  - generic [ref=f7e162]:
+    - generic [ref=f7e163]:
+      - heading "Todo tu campo, en una sola pantalla" [level=2] [ref=f7e164]
+      - paragraph [ref=f7e165]: Rodeo junta satélite, clima y ganado para que decidas cuándo y dónde pastorear.
+    - generic [ref=f7e166]:
+      - generic [ref=f7e169]:
+        - heading "Condición de pasturas" [level=3] [ref=f7e170]
+        - paragraph [ref=f7e171]: "Cada lote tiene su estado de regeneración: sabés cuál está listo hoy y cuál conviene esperar."
+      - generic [ref=f7e175]:
+        - heading "Ubicación del ganado" [level=3] [ref=f7e176]
+        - paragraph [ref=f7e177]: Los collares GPS muestran dónde está tu rodeo y te avisan cuando cambia de lote.
+      - generic [ref=f7e181]:
+        - heading "Imágenes satelitales" [level=3] [ref=f7e182]
+        - paragraph [ref=f7e183]: NDVI, humedad y radar de Sentinel en cada pasada, aunque el día esté nublado.
+      - generic [ref=f7e187]:
+        - heading "Clima por lote" [level=3] [ref=f7e188]
+        - paragraph [ref=f7e189]: La lluvia de los últimos 7 días y el pronóstico de los próximos 5, lote por lote.
+      - generic [ref=f7e192]:
+        - heading "Registro de uso" [level=3] [ref=f7e193]
+        - paragraph [ref=f7e194]: La planilla de pastoreo de cada potrero se arma sola y la descargás en Excel.
+      - generic [ref=f7e197]:
+        - heading "Equipo y permisos" [level=3] [ref=f7e198]
+        - paragraph [ref=f7e199]: Sumá a tu encargado o a tu asesor con el rol y los permisos que elijas.
+  - generic [ref=f7e200]:
+    - generic [ref=f7e201]:
+      - heading "Lo que más nos preguntan" [level=2] [ref=f7e202]
+      - paragraph [ref=f7e203]: Si te queda alguna duda, escribinos y te respondemos.
+    - generic [ref=f7e204]:
+      - generic [ref=f7e205]:
+        - button "¿Necesito señal en el campo para usar Rodeo?" [expanded] [ref=f7e206] [cursor=pointer]
+        - paragraph [ref=f7e209]: Los collares envían su posición por red celular o satelital según el modelo. Vos consultás todo desde la app cuando tengas conexión.
+      - generic [ref=f7e210]:
+        - button "¿Cada cuánto se actualizan los datos?" [ref=f7e211] [cursor=pointer]
+        - paragraph [ref=f7e214]: Los datos meteorológicos se actualizan diariamente, mientras que los satelitales cada 5 días, si es que no hay nubes.
+      - generic [ref=f7e215]:
+        - button "¿Puedo usar Rodeo sin collares?" [ref=f7e216] [cursor=pointer]
+        - paragraph [ref=f7e219]: Absolutamente. Se pueden gestionar lotes y planificar los pastoreos gracias a las imágenes satelitales de Copernicus (ESA), el clima de Open-Meteo y los modelos agronómicos de INTA y LART-FAUBA.
+      - generic [ref=f7e220]:
+        - button "¿Quién puede ver la información de mi campo?" [ref=f7e221] [cursor=pointer]
+        - paragraph [ref=f7e224]: Cualquiera. La aplicación permite delegar roles con ciertos permisos.
+      - generic [ref=f7e225]:
+        - button "¿Cuánto tarda en estar listo?" [ref=f7e226] [cursor=pointer]
+        - paragraph [ref=f7e229]: Actualmente está en desarrollo. Hay que probar su funcionalidad en campos para seguir mejorándolo.
+  - generic [ref=f7e230]:
+    - heading "Probá Rodeo en tu campo" [level=2] [ref=f7e231]
+    - paragraph [ref=f7e232]: Te mostramos cómo se ven tus lotes, tu ganado y el clima en una demo personalizada.
+    - generic [ref=f7e233]:
+      - link "Solicitá una demo" [ref=f7e234] [cursor=pointer]:
+        - /url: "#demo"
+      - link "Ver cómo funciona" [ref=f7e235] [cursor=pointer]:
+        - /url: "#como-funciona"
+  - contentinfo [ref=f7e236]:
+    - generic [ref=f7e237]:
+      - generic [ref=f7e238]:
+        - img "RODEO" [ref=f7e240]
+        - paragraph [ref=f7e241]: Pastoreo inteligente, al alcance de tus manos.
+      - generic [ref=f7e242]:
+        - generic [ref=f7e243]:
+          - heading "PRODUCTO" [level=4] [ref=f7e244]
+          - link "Cómo funciona" [ref=f7e245] [cursor=pointer]:
+            - /url: "#como-funciona"
+          - link "Funciones" [ref=f7e246] [cursor=pointer]:
+            - /url: "#funciones"
+          - link "Preguntas frecuentes" [ref=f7e247] [cursor=pointer]:
+            - /url: "#preguntas"
+        - generic [ref=f7e248]:
+          - heading "RODEO" [level=4] [ref=f7e249]
+          - link "Solicitá una demo" [ref=f7e250] [cursor=pointer]:
+            - /url: "#demo"
+          - link "Iniciar sesión" [ref=f7e251] [cursor=pointer]:
+            - /url: "#"
+          - link "Contacto" [ref=f7e252] [cursor=pointer]:
+            - /url: "#"
+    - generic [ref=f7e253]:
+      - paragraph [ref=f7e254]: © 2026 Rodeo. Todos los derechos reservados.
+      - paragraph [ref=f7e255]: Hecho para el campo argentino

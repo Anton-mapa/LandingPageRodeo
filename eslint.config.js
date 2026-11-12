@@ -6,7 +6,8 @@ import tseslint from 'typescript-eslint'
 import { globalIgnores } from 'eslint/config'
 
 export default tseslint.config([
-  globalIgnores(['dist']),
+  // CircularCarousel viene de React Bits tal cual: no lo tocamos
+  globalIgnores(['dist', 'src/components/CircularCarousel.tsx']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
